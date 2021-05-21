@@ -15,7 +15,7 @@ sudo mv hbars /usr/bin
 The script accepts both piped and command data
 ```bash
 $ hbars
-usage: hbars [data] [option] 
+usage: hbars [option] [data]
   -h --help     print this usage and exit
   -c --color    set color to all bars (default 7=white)
                  (0-grey,1-red,2=green,3=yellow,4=blue,5=magenta,6=cyan,7=white)
@@ -41,7 +41,34 @@ usage: hbars [data] [option]
          Web example: -t "<center style='fore-ground:red'>Some Bars</center>"
 -w --width, width of bar. Max value is scaled to this width value (default 50)
 -W --Web, output is HTML formatted. Output show be directed to a file
--f --fontsize, fontsize for web output (default 24(
+-f --fontsize, fontsize for web output (default 24)
+
+### Examples:
+The data structure is: label, value, (units - optional), (color -optional);
+Each item is separated withhu ',' and each item group is terminated with ";".
+
+An example with data on the command line:
+```bash
+$ $  hbars -t Weather  -w 40 -t "Weather Data" "temp,33;humidity,80"
+
+            Weather Data
+
+       temp ████████████████ 33 
+
+   humidity ████████████████████████████████████████ 80 
+
+```
+At example of data piped in:
+```bash
+$ echo 'temp,33,C;pressure,14,psi' | hbars -t Weather  -w 40 
+
+            Weather
+
+       temp ████████████████████████████████████████ 33 C
+
+   pressure ████████████████ 14 psi
+```
+
 
 
 ## Background
