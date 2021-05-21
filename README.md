@@ -4,13 +4,22 @@ The **_hbar_** script can be used to create text based or web page horizontal ba
 ![](hbar0.png)
 ![](hbars_web0.png)
 
+## Installation and Usage
+To install and use the Bash script:
 ```bash
-$ ./hbars
+wget https://raw.githubusercontent.com/metcalfepete/hbars/main/hbars
+chmod +x hbars
+# to make it available 
+sudo mv hbars /usr/bin
+```
+The script accepts both piped and command data
+```bash
+$ hbars
 usage: hbars [data] [option] 
   -h --help     print this usage and exit
   -c --color    set color to all bars (default 7=white)
                  (0-grey,1-red,2=green,3=yellow,4=blue,5=magenta,6=cyan,7=white)
-  -p --pretty   add different colors to bars (-c overrides)cat data.txt | ./hbars -W -f 24 -t 'Raspi Data' 
+  -p --pretty   add different colors to bars (-c overrides)
   -t --title    top title
   -w --width    max width of bar (default 50)
   -W --Web      make output HTML formatted
@@ -22,6 +31,17 @@ usage: hbars [data] [option]
    cat data.txt | ./hbars -W -f 24 -t 'Raspi Data' > data.htm
 
 ```
+### Options Arguments:
+
+-c -- color, the color can be set for all bars. The color is based on the ANSI color settings:
+         0-grey,1-red,2=green,3=yellow,4=blue,5=magenta,6=cyan,7=white
+         (default 7=white)
+-p -- pretty, each bar is given a unique color in the order of 1,2,3... 
+-t -- title. A string. For web page HTML tags can be include: 
+         Web example: -t "<center style='fore-ground:red'>Some Bars</center>"
+-w --width, width of bar. Max value is scaled to this width value (default 50)
+-W --Web, output is HTML formatted. Output show be directed to a file
+-f --fontsize, fontsize for web output (default 24(
 
 
 ## Background
