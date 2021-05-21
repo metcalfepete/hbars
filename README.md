@@ -2,8 +2,7 @@
 The **_hbar_** script can be used to create text based or web page horizontal bars.
 
 ![](hbar0.png)
-
-![](hbar_web0.png)
+![](hbars_web0.png)
 
 ```bash
 $ ./hbars
